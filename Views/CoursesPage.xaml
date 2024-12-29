@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:c971.ViewModels"
+             x:Class="c971.Views.CoursesPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10" BackgroundColor="WhiteSmoke">
+            <VerticalStackLayout>
+
+                <VerticalStackLayout Margin="0,0,0,25">
+
+                    <!-- Show Title of Selected Term, Start-End Dates -->
+
+                    <Label Text="{Binding TermTitle, StringFormat='{0} Term'}"
+                   FontSize="20" 
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,10,0,10" />
+
+                    <HorizontalStackLayout HorizontalOptions="Center">
+                        <Label Text="{Binding TermStartDate, StringFormat='{0:MM/dd/yy} - '}" 
+                       HorizontalOptions="Center"
+                       TextColor="black"/>
+                        <Label Text="{Binding TermEndDate, StringFormat='{0:MM/dd/yy}'}" 
+                       HorizontalOptions="Center"
+                       TextColor="black"/>
+                    </HorizontalStackLayout>
+
+                </VerticalStackLayout>
+
+                <!-- Show Templated Box for Each Course -->
+
+                <CollectionView ItemsSource="{Binding Courses}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="10"
+                                   Orientation="Vertical"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate>
+
+
+                            <Frame BorderColor="Black" BackgroundColor="White" CornerRadius="5" HeightRequest="80" Padding="15">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="15"/>
+                                        <RowDefinition Height="15"/>
+                                        <RowDefinition Height="14"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="175"/>
+                                        <ColumnDefinition Width="200"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Row="0"  Grid.Column="0" Text="{Binding Title}" 
+                                           TextColor="black"
+                                           FontAttributes="Bold"
+                                           FontSize="12"
+                                           Padding="0"/>
+                                    <Button Grid.Row="0" Grid.Column="1" Text="View Assessments"
+                                    Clicked="OnAssessmentsClicked"
+                                    HorizontalOptions="End"
+                                    Margin="0,0,20,0"
+                                    TextColor="DarkBlue"
+                                    BackgroundColor="Transparent"
+                                    FontSize="9"
+                                    Padding="0"></Button>
+
+
+                                    <Label Grid.Row ="1"  Grid.Column="0" Text="{Binding SelectedStatus}"
+                                   TextColor="DimGray"
+                                   FontAttributes="Bold"
+                                   Padding="0"
+                                   FontSize="10"
+                                   Margin="0,0,0,0"/>
+
+
+                                    <Label Grid.Row="2" Grid.Column ="0" Text="{Binding StartDate, StringFormat='{0:MM/dd/yy} - '}"
+                                   TextColor="Black"
+                                   FontSize="8"
+                                   Margin="0,0,0,0"/>
+
+                                    <Label Grid.Row="2" Grid.Column="0" Text="{Binding EndDate, StringFormat='{0:MM/dd/yy}'}"
+                                   TextColor="Black"
+                                   FontSize="8"
+                                   Margin="40,0,0,0"></Label>
+
+
+                                    <Button Grid.Row="2" Grid.Column="1" Text="Detail View | "
+                                    Clicked="OnEditCourseClicked"
+                                    TextColor="DarkBlue"
+                                    BackgroundColor="Transparent"
+                                    FontSize="9"
+                                    HorizontalOptions="End"
+                                    Margin="0,0,46,0"
+                                    Padding="0"></Button>
+
+                                    <Button Grid.Row="2" Grid.Column="1" Text="Delete"
+                                    Clicked="OnDeleteCourseClicked"
+                                    TextColor="Red"
+                                    BackgroundColor="Transparent"
+                                    FontSize="9"
+                                    HorizontalOptions="End"
+                                    Margin="0,0,10,0"
+                                    Padding="0"></Button>
+
+
+
+
+                                </Grid>
+
+
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </VerticalStackLayout>
+            <Button Text="Add Course"
+                BackgroundColor="DarkBlue"
+                TextColor="White"
+                x:Name="BtnAddTerm"
+                Margin="0,25,0,0"
+                Clicked="OnAddCourseClicked"/>
+        </VerticalStackLayout>
+
+    </ScrollView>
+</ContentPage>

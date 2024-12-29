@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:c971.ViewModels"
+             x:Class="c971.Views.MainPage">
+
+    <ContentPage.BindingContext>
+        <viewModels:MainPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10" BackgroundColor="WhiteSmoke">
+            <VerticalStackLayout>
+                <VerticalStackLayout Margin="0,0,0,25">
+
+                    <!-- Header -->
+
+                    <Label Text= "Academic Terms"
+                       FontSize="20" 
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       Margin="0,10,0,10" />
+
+                    <!-- Show Templated Box for Each Term -->
+
+                    <CollectionView ItemsSource="{Binding Terms}">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="10"
+                                           Orientation="Vertical"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+
+                                <Frame BorderColor="Black" BackgroundColor="White" CornerRadius="5" HeightRequest="80" Padding="15">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="15"/>
+                                            <RowDefinition Height="15"/>
+                                            <RowDefinition Height="14"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="175"/>
+                                            <ColumnDefinition Width="200"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <!-- Click Term Name To Show Courses For Term  -->
+
+                                        <Label Grid.Row="0" Grid.Column="0">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding Title}"
+                                                      FontAttributes="Bold"
+                                                      FontSize="12"
+                                                      TextDecorations="Underline"
+                                                      TextColor="DarkBlue">
+
+                                                        <Span.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="OnTermLabelTapped" />
+                                                        </Span.GestureRecognizers>
+                                                    </Span>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <!-- Show Start and End Dates for the Term -->
+
+                                        <Label Grid.Row="2" Grid.Column ="0" Text="{Binding StartDate, StringFormat='{0:MM/dd/yy} - '}"
+                                           TextColor="Black"
+                                           FontSize="9"
+                                           Margin="0,0,0,0"/>
+
+                                        <Label Grid.Row="2" Grid.Column="0" Text="{Binding EndDate, StringFormat=' {0:MM/dd/yy}'}"
+                                           TextColor="Black"
+                                           FontSize="9"
+                                           Margin="40,0,0,0"></Label>
+
+                                        <!-- Edit and Delete Terms Here -->
+
+                                        <Button Grid.Row="2" Grid.Column="1" Text="Edit | "
+                                            Clicked="OnEditTermClicked"
+                                            TextColor="DarkBlue"
+                                            BackgroundColor="Transparent"
+                                            FontSize="9"
+                                            HorizontalOptions="End"
+                                            Margin="0,0,35,0"
+                                            Padding="0"></Button>
+
+                                        <Button Grid.Row="2" Grid.Column="1" Text="Delete"
+                                            Clicked="OnDeleteTermClicked"
+                                            TextColor="Red"
+                                            BackgroundColor="Transparent"
+                                            FontSize="9"
+                                            
+                                             HorizontalOptions="End"
+                                            Margin="0,0,10,0"
+                                            Padding="0"></Button>
+
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- Add a New Term Here -->
+
+            <Button Text="Add Term"
+                    BackgroundColor="DarkBlue"
+                    TextColor="White"
+                    x:Name="BtnAddTerm"
+                    Margin="0,25,0,0"
+                    Clicked="OnAddTermClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

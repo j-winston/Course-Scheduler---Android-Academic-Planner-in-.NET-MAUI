@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:c971.ViewModels"
+             x:Class="c971.EditCoursePage">
+
+
+
+    <VerticalStackLayout
+        Padding="15,1"
+        Spacing="5"
+        BackgroundColor="WhiteSmoke">
+
+        <!-- Header -->
+
+        <Label Text="Course Details"
+               FontSize="15" 
+               TextColor="Black"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Center"
+               Margin="0,5,0,10" />
+
+        <!-- Course Title --> 
+
+        <Label Text="Course Title"
+               FontSize="11" 
+               TextColor="Darkblue"
+               HorizontalTextAlignment="Start"
+               Margin="0,10,0,10" />
+        <Entry Text="{Binding Title}"
+               FontSize="11"
+               BackgroundColor="White"></Entry>
+
+
+        <!-- Date and Notifications -->
+        <HorizontalStackLayout>
+            <Label Text="Start Date"
+                   FontSize="10" 
+                   Margin="0,15,10,0"
+                   TextColor="Darkblue"/>
+            <DatePicker FontSize="10"
+                        Date="{Binding StartDate}"></DatePicker>
+            <Label Text="Notifications"
+                   FontSize="10"
+                   Margin="50,15,0,0"></Label>
+            <CheckBox IsChecked="{Binding StartDateNotification}"
+                      Scale=".6"
+                      Margin="0,0,0,0"
+                      Color="DarkBlue"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label Text="End Date"
+                   FontSize="10" 
+                   TextColor="DarkBlue"
+                   Margin="0,15,10,0"/>
+            <DatePicker x:Name="EndDatePicker"
+                        HorizontalOptions="Center"
+                        FontSize="11"
+                        Date="{Binding EndDate}"></DatePicker>
+            <Label Text="Notifications"
+                   FontSize="10"
+                   Margin="50,15,0,0"
+                   TextColor="Black"></Label>
+            <CheckBox IsChecked="{Binding EndDateNotification}"
+                      Scale=".6"
+                      Color="DarkBlue"/>
+        </HorizontalStackLayout>
+
+
+        <!-- Course Status Picker -->
+
+        <Label Text="Status"
+               FontSize="11" 
+               TextColor="Darkblue"
+               HorizontalTextAlignment="Start"
+               Margin="0,10,0,10" />
+        <Picker Title="Course Status"
+                ItemsSource="{Binding Options}"
+                BackgroundColor="White"
+                TextColor="Darkblue"
+                SelectedItem="{Binding SelectedStatus}"
+                FontSize="11"></Picker>
+
+
+        <!-- Instructor Details -->
+
+        <Label Text="Instructor"
+               FontSize="11" 
+               TextColor="Darkblue"
+               HorizontalTextAlignment="Start"
+               Margin="0,10,0,10" />
+        <Entry FontSize="11"
+               BackgroundColor="White"
+               Text="{Binding InstructorName }"></Entry>
+
+        <Label Text="Instructor Email"
+               FontSize="11" 
+               TextColor="Darkblue"
+               HorizontalTextAlignment="Start"
+               Margin="0,10,0,10" />
+
+        <Entry FontSize="11"
+               BackgroundColor="White"
+               Text="{Binding InstructorEmail }"></Entry>
+        <Label Text="Instructor Phone"
+               FontSize="11" 
+               TextColor="Darkblue"
+               HorizontalTextAlignment="Start"
+               Margin="0,10,0,10" />
+        <Entry FontSize="11"
+               BackgroundColor="white"
+               Text="{Binding InstructorPhone }"></Entry>
+
+        <!-- Optional Notes and Sharing -->
+
+        <Label Text="Optional Notes"
+               FontSize="11" 
+               TextColor="Darkblue"
+               HorizontalTextAlignment="Start"
+               Margin="0,10,0,0" />
+
+        <Entry FontSize="11"
+               Text="{Binding Notes }"></Entry>
+
+        <Button Text="Share"
+                BackgroundColor="Transparent"
+                FontSize="9"
+                FontAttributes="Bold"
+                TextColor="Blue"
+                Margin="-10,-20,0,0"
+                HorizontalOptions="Start"
+                Clicked="OnShareNotesClicked"></Button>
+
+        <!-- Update on Save -->
+        <Button
+            Text="Save"
+            BackgroundColor="DarkBlue"
+            Margin="0,10,0,0"
+            Clicked="OnSaveClicked"></Button>
+
+    </VerticalStackLayout>
+</ContentPage>

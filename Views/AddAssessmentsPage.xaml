@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:c971.ViewModels"
+             x:Class="c971.Views.AddAssessmentsPage">
+
+    <ContentPage.BindingContext>
+        <viewModels:AddAssessmentsViewModel />
+    </ContentPage.BindingContext>
+
+
+    <VerticalStackLayout
+        Padding="15"
+        Spacing="5"
+        BackgroundColor="WhiteSmoke">
+
+        <!-- Enter Assessment Name -->
+
+        <Label Text="Add Assessment"
+               FontSize="20" 
+               TextColor="Black"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Center"
+               Margin="0,10,0,10" />
+
+        <Label Text="Assessment Name"
+               FontSize="11" 
+               TextColor="Darkblue"
+               HorizontalTextAlignment="Start"
+               Margin="0,10,0,10" />
+        <Entry
+            Text="{Binding Title}"
+            FontSize="11"
+            Placeholder="Java II PA"
+            BackgroundColor="White"></Entry>
+
+        <!-- Set Date and Notifications for Start/End -->
+
+        <HorizontalStackLayout>
+            <Label Text="Start Date"
+                   FontSize="10" 
+                   Margin="0,15,10,0"
+                   TextColor="Darkblue"/>
+            <DatePicker x:Name="StartDatePicker"
+                        FontSize="10"
+                        Date="{Binding StartDate}"></DatePicker>
+            <Label Text="Notifications"
+                   FontSize="10"
+                   Margin="50,15,0,0"
+            ></Label>
+            <CheckBox IsChecked="{Binding StartDateNotification}"
+                      Scale=".6"
+                      Margin="0,0,0,0"
+                      Color="DarkBlue"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label Text="End Date"
+                   FontSize="10" 
+                   TextColor="DarkBlue"
+                   Margin="0,15,10,0"/>
+            <DatePicker x:Name="EndDatePicker"
+                        x:DataType="viewModels:AddTermViewModel"
+                        HorizontalOptions="Center"
+                        FontSize="11"
+                        Date="{Binding EndDate}"></DatePicker>
+            <Label Text="Notifications"
+                   FontSize="10"
+                   Margin="50,15,0,0"
+                   TextColor="Black"></Label>
+            <CheckBox IsChecked="{Binding EndDateNotification}"
+                      Scale=".6"
+                      Color="DarkBlue"/>
+        </HorizontalStackLayout>
+
+
+
+        <!-- Pick Assessment Type (Performance/Objective) -->
+
+        <Label Text="Assessment Type"
+               FontSize="11" 
+               TextColor="Darkblue"
+               HorizontalTextAlignment="Start"
+               Margin="0,10,0,10" />
+        <Picker 
+                ItemsSource="{Binding Options}"
+                BackgroundColor="White"
+                TextColor="Darkblue"
+                SelectedItem="{Binding SelectedType}"
+                FontSize="11"
+        ></Picker>
+
+
+        <Button
+            Text="Save"
+            BackgroundColor="DarkBlue"
+            Margin="0,20,0,0"
+            Clicked="OnSaveClicked"></Button>
+
+
+    </VerticalStackLayout>
+</ContentPage>
