@@ -1,0 +1,97 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = true
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0-android
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = c971
+build_property.ProjectDir = /home/james/Documents/Code/course-scheduler/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[/home/james/Documents/Code/course-scheduler/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = c971.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[/home/james/Documents/Code/course-scheduler/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = c971.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[/home/james/Documents/Code/course-scheduler/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = c971.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Colors.xaml
+
+[/home/james/Documents/Code/course-scheduler/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = c971.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Styles.xaml
+
+[/home/james/Documents/Code/course-scheduler/Views/AddAssessmentsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = c971.Views.AddAssessmentsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/AddAssessmentsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/AddAssessmentsPage.xaml
+
+[/home/james/Documents/Code/course-scheduler/Views/AddCoursePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = c971.Views.AddCoursePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/AddCoursePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/AddCoursePage.xaml
+
+[/home/james/Documents/Code/course-scheduler/Views/AddTermPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = c971.Views.AddTermPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/AddTermPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/AddTermPage.xaml
+
+[/home/james/Documents/Code/course-scheduler/Views/AssessmentsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = c971.Views.AssessmentsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/AssessmentsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/AssessmentsPage.xaml
+
+[/home/james/Documents/Code/course-scheduler/Views/CoursesPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = c971.Views.CoursesPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/CoursesPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/CoursesPage.xaml
+
+[/home/james/Documents/Code/course-scheduler/Views/EditAssessmentPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = c971.Views.EditAssessmentPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/EditAssessmentPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/EditAssessmentPage.xaml
+
+[/home/james/Documents/Code/course-scheduler/Views/EditCoursePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = c971.Views.EditCoursePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/EditCoursePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/EditCoursePage.xaml
+
+[/home/james/Documents/Code/course-scheduler/Views/EditTermPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = c971.Views.EditTermPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/EditTermPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/EditTermPage.xaml
+
+[/home/james/Documents/Code/course-scheduler/Views/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = c971.Views.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/MainPage.xaml

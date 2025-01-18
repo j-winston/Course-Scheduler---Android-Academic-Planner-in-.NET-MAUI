@@ -5,7 +5,7 @@ namespace c971
 {
     public static class MauiProgram
     {
-        public static MauiApp CreateMauiApp( )
+        public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
             builder
@@ -17,12 +17,15 @@ namespace c971
                 })
                 .UseLocalNotification();
 
-            Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping( nameof( Entry ), ( handler, view ) =>
-            {
+            Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping(
+                nameof(Entry),
+                (handler, view) =>
+                {
 #if ANDROID
-            handler.PlatformView.SetBackgroundColor(Android.Graphics.Color.Transparent);
+                    handler.PlatformView.SetBackgroundColor(Android.Graphics.Color.Transparent);
 #endif
-            } );
+                }
+            );
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

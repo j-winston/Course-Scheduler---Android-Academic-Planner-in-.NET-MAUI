@@ -1,7 +1,4 @@
 ﻿using c971.Data;
-using System.IO;
-using c971.ViewModels;
-using c971.Views;
 
 namespace c971
 {
@@ -9,12 +6,12 @@ namespace c971
     {
         private static DatabaseService? _database;
 
-        public App( )
+        public App()
         {
             InitializeComponent();
 
-            // Add test data for evaluation 
-            Task.Run( async ( ) => await App.Database.SeedDataAsync() ).Wait();
+            // Add test data for evaluation
+            Task.Run(async () => await App.Database.SeedDataAsync()).Wait();
 
             // Use AppShell as the main page for Shell-based navigation
             MainPage = new AppShell();
@@ -25,23 +22,19 @@ namespace c971
         {
             get
             {
-                if ( _database == null )
+                if (_database == null)
                 {
                     // Get the path to the database file
-                    string path = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.LocalApplicationData ), "c971.db3" );
+                    string path = Path.Combine(
+                        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                        "c971.db3"
+                    );
 
                     // Create the database service
-                    _database = new DatabaseService( path );
-
-
+                    _database = new DatabaseService(path);
                 }
                 return _database;
             }
         }
-
-
-       
-
-
     }
 }

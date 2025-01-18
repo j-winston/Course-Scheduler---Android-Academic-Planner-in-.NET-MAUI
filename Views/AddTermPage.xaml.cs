@@ -1,28 +1,25 @@
- using Microsoft.Maui.Controls;
 using c971.Models;
 using c971.ViewModels;
-using System;
-using System.Linq;
 
 namespace c971.Views
 {
     public partial class AddTermPage : ContentPage
     {
-        public AddTermPage( )
+        public AddTermPage()
         {
             InitializeComponent();
             BindingContext = new AddTermViewModel();
         }
 
-        private async void OnSubmitClicked( object? sender, EventArgs e )
+        private async void OnSubmitClicked(object? sender, EventArgs e)
         {
             try
             {
                 var viewModel = BindingContext as AddTermViewModel;
 
-                if ( viewModel == null  )
+                if (viewModel == null)
                 {
-                    await DisplayAlert( "Error", "No viewmodel here.", "OK" );
+                    await DisplayAlert("Error", "No viewmodel here.", "OK");
                     return;
                 }
 
@@ -30,7 +27,7 @@ namespace c971.Views
                 {
                     Title = viewModel.Title,
                     StartDate = viewModel.StartDate,
-                    EndDate = viewModel.EndDate
+                    EndDate = viewModel.EndDate,
                 };
 
                 if (IsValidated(viewModel))
@@ -41,52 +38,47 @@ namespace c971.Views
 
                     MessagingCenter.Send(this, "AddTerm", term);
 
-                    await Navigation.PopAsync(); 
+                    await Navigation.PopAsync();
                     await DisplayAlert("Term Submitted", "New term added", "OK");
                 }
-
             }
-            catch ( Exception ex )
+            catch (Exception ex)
             {
-                await DisplayAlert( "Error", $"Unable to add: {ex.Message}", "OK" );
+                await DisplayAlert("Error", $"Unable to add: {ex.Message}", "OK");
             }
         }
 
         public bool IsValidated(AddTermViewModel viewModel)
         {
-            // Check if Title is blank before submitting 
+            // Check if Title is blank before submitting
 
-            if ( string.IsNullOrWhiteSpace( viewModel.Title ) )
+            if (string.IsNullOrWhiteSpace(viewModel.Title))
             {
-                DisplayAlert( "Validation Error", "Title is required.", "OK" );
+                DisplayAlert("Validation Error", "Title is required.", "OK");
                 return false;
             }
 
-            if ( viewModel.StartDate == default( DateTime ) )
+            if (viewModel.StartDate == default(DateTime))
             {
-                DisplayAlert( "Validation Error", "Start date is required.", "OK" );
+                DisplayAlert("Validation Error", "Start date is required.", "OK");
                 return false;
             }
 
-            if ( viewModel.EndDate == default( DateTime ) )
+            if (viewModel.EndDate == default(DateTime))
             {
-                DisplayAlert( "Validation Error", "End date is required.", "OK" );
+                DisplayAlert("Validation Error", "End date is required.", "OK");
                 return false;
             }
 
             // End date must be after start date
 
-            if ( viewModel.EndDate < viewModel.StartDate )
+            if (viewModel.EndDate < viewModel.StartDate)
             {
-                DisplayAlert( "Validation Error", "End date must be after the start date.", "OK" );
+                DisplayAlert("Validation Error", "End date must be after the start date.", "OK");
                 return false;
             }
 
-
-
             return true;
         }
-
-      
     }
 }
